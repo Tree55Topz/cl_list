@@ -40,7 +40,7 @@
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
                     <li>
-                        <a href="#" onclick=""> Sign In </a>
+                        <a role="button" data-toggle="modal" data-target="#signIn"> Sign In </a>
                     </li>
                     <li>
                         <a role="button" data-toggle="modal" data-target="#register"> Register </a>
@@ -85,6 +85,53 @@
 
                 <div class="modal-footer">
                     <button type="button" class="btn btn-success"> Register </button>
+                    <button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
+                </div>
+            </div>
+        </div>
+
+    </div>
+	
+	<!-- Sign In Modal -->
+    <div id="signIn" class="modal fade" role="dialog">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    <h4><span class="glyphicon glyphicon-cloud"></span> Sign In </h4>
+                </div>
+
+                <div class="modal-body">
+                    <div class="col-md-8" style="border-right: 1px dotted #C2C2C2;padding-right: 30px;">
+                        
+                        <!-- Tab panes -->
+                        <div class="tab-content">
+                            <div class="tab-pane active" id="Login">
+                                <div class="form-group">
+                                    <label for="email" class="label-email">
+                                        Email</label>
+                                    <div class="input-email">
+                                        <input type="email" class="form-control" id="email1" placeholder="Email" />
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="exampleInputPassword1" class="col-sm-2 control-label">
+                                        Password</label>
+                                    <div class="col-sm-10">
+                                        <input type="email" class="form-control" id="exampleInputPassword1" placeholder="Email" />
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                        
+                    </div>
+                    
+
+                </div>
+
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-success"> Sign In </button>
                     <button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
                 </div>
             </div>

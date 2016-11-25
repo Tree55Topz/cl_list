@@ -1,0 +1,12 @@
+@font-face {
+    font-family: logoFont;
+    src: url(../fonts/conthrax-sb.ttf);
+}
+
+.modal-header, h4, .close {
+    background-color: #ff9308;
+    color:white !important;
+    text-align: center;
+    font-size: 30px;
+    font-family: logoFont;
+}

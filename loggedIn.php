@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+    require("config.php");
+    if(empty($_SESSION['user'])) 
+    {
+        header("Location: index.php");
+        die("Redirecting to index.php"); 
+    }
+?>
+
 <head>
 
     <meta charset="utf-8">
 
     <title>Cometlist - Anonymous & Shared Bookmarks</title>
+	
+	<h2>Welcome 
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,11 +51,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#signIn"> Sign In </a>
-                    </li>
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#register"> Register </a>
+					<li>
+                        <a role="button" data-toggle="modal" data-target="#register"> Log Out </a>
                     </li>
                 </ul>
             </div>
@@ -69,18 +77,6 @@
             </div>
         </div>
     </header>
-  <!--  <div id="register" class="modal fade" role="dialog">
-		<form action="register.php" method="post"> 
-		<label>Username:</label> 
-		<input type="text" name="username" value="" /> 
-		<label>Email:</label> 
-		<input type="text" name="email" value="" /> 
-		<label>Password:</label> 
-		<input type="password" name="password" value="" /> <br /><br />
-		<input type="submit" class="btn btn-info" value="Register" /> 
-		</form>
-	</div>
-	-->
 
     <!-- Register Modal -->
     <div id="register" class="modal fade" role="dialog">
@@ -119,21 +115,9 @@
 				</form>
             </div>
         </div>
-
     </div>
 	
 	<!-- Sign In Modal -->
-	
-	<!--<form action="login.php" method="post"> 
-                    Username:<br /> 
-                    <input type="text" name="username" value="<?php echo $submitted_username; ?>" /> 
-                    <br /><br /> 
-                    Password:<br /> 
-                    <input type="password" name="password" value="" /> 
-                    <br /><br /> 
-                    <input type="submit" class="btn btn-info" value="Login" /> 
-                </form> -->
-	
     <div id="signIn" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">

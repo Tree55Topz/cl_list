@@ -1,6 +1,8 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php session_start(); ?>
+
 <head>
 
     <meta charset="utf-8">
@@ -39,14 +41,7 @@
             </div>
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#signIn"> Sign In </a>
-                    </li>
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#register"> Register </a>
-                    </li>
-                </ul>
+                <?php include "components/navBar.php"; ?>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -67,99 +62,20 @@
                     </span>
                 </div>
             </div>
+			<button type="button" onclick="pages/saveBookmark.php"> Save A Bookmark!</button> 
+
         </div>
+			
     </header>
-  <!--  <div id="register" class="modal fade" role="dialog">
-		<form action="register.php" method="post"> 
-		<label>Username:</label> 
-		<input type="text" name="username" value="" /> 
-		<label>Email:</label> 
-		<input type="text" name="email" value="" /> 
-		<label>Password:</label> 
-		<input type="password" name="password" value="" /> <br /><br />
-		<input type="submit" class="btn btn-info" value="Register" /> 
-		</form>
-	</div>
-	-->
 
     <!-- Register Modal -->
     <div id="register" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="padding:35px 50px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                    <h4><span class="glyphicon glyphicon-leaf"></span> Register </h4>
-                </div>
-				<form action="register.php" method="post"> 
-					<div class="modal-body" style="padding:40px 50px;">
-							<div class="form-group">
-								<label for="register_usrname"><span class="glyphicon glyphicon-user"></span> Username </label>
-								<input type="text" class="form-control" name="username"  placeholder="Enter usernaenae">
-							</div>
-							<div class="form-group">
-								<label for="register_email"> Email </label>
-								<input type="text" class="form-control" name="email"  placeholder="Enter email">
-							</div>
-							<div class="form-group">
-								<label for="register_psw"> Password </label>
-								<input type="text" class="form-control" name="password"  placeholder="Enter password">
-							</div>
-							<div class="form-group">
-								<label for="cnfm_psw"> Confirm Password </label>
-								<input type="text" class="form-control" name="confirm_password" placeholder="Confirm password">
-							</div>  
-					</div>
-
-					<div class="modal-footer">
-
-						<input type="submit" class="btn register_submit" value="Register" />
-						<button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
-
-					</div>
-				</form>
-            </div>
-        </div>
-
+       <?php include "components/registerModal.php"; ?>
     </div>
 	
 	<!-- Sign In Modal -->
-	
-	<!--<form action="login.php" method="post"> 
-                    Username:<br /> 
-                    <input type="text" name="username" value="<?php echo $submitted_username; ?>" /> 
-                    <br /><br /> 
-                    Password:<br /> 
-                    <input type="password" name="password" value="" /> 
-                    <br /><br /> 
-                    <input type="submit" class="btn btn-info" value="Login" /> 
-                </form> -->
-	
     <div id="signIn" class="modal fade" role="dialog">
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header" style="padding:35px 50px;">
-                    <button type="button" class="close" data-dismiss="modal">&times;</button> 
-                    <h4><span class="glyphicon glyphicon-leaf"></span> Sign In </h4>
-                </div>
-				<form method="post" action="login.php" >
-					<div class="modal-body" style="padding:40px 50px;">
-							<div class="form-group">
-								<label for="signIn_usrname"><span class="glyphicon glyphicon-user"></span> Username </label>
-								<input type="text" class="form-control" name="username" id="signIn_usrname" placeholder="Enter email">
-							</div>
-							<div class="form-group">
-								<label for="signIn_psw"> Password </label>
-								<input type="text" class="form-control" name="password" id="signIn_psw" placeholder="Enter password">
-							</div>
-					</div>
-
-					<div class="modal-footer">
-						<input type="submit" class="btn signIn_submit" value="Login" />
-						<button type="button" class="btn signIn_close" data-dismiss="modal"> Close </button>
-					</div>
-				</form>
-            </div>
-        </div>
+       <?php include "components/signInModal.php"; ?>
     </div> 
 
     <!-- Page Content -->

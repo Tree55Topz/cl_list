@@ -1,11 +1,22 @@
 <!DOCTYPE html>
 <html lang="en">
 
+<?php
+    require("config.php");
+    if(empty($_SESSION['user'])) 
+    {
+        header("Location: index.php");
+        die("Redirecting to index.php"); 
+    }
+?>
+
 <head>
 
     <meta charset="utf-8">
 
     <title>Cometlist - Anonymous & Shared Bookmarks</title>
+	
+	<h2>Welcome 
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -40,11 +51,8 @@
             <!-- Collect the nav links, forms, and other content for toggling -->
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-right">
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#signIn"> Sign In </a>
-                    </li>
-                    <li>
-                        <a role="button" data-toggle="modal" data-target="#register"> Register </a>
+					<li>
+                        <a role="button" data-toggle="modal" data-target="#register"> Log Out </a>
                     </li>
                 </ul>
             </div>
@@ -69,18 +77,6 @@
             </div>
         </div>
     </header>
-  <!--  <div id="register" class="modal fade" role="dialog">
-		<form action="register.php" method="post"> 
-		<label>Username:</label> 
-		<input type="text" name="username" value="" /> 
-		<label>Email:</label> 
-		<input type="text" name="email" value="" /> 
-		<label>Password:</label> 
-		<input type="password" name="password" value="" /> <br /><br />
-		<input type="submit" class="btn btn-info" value="Register" /> 
-		</form>
-	</div>
-	-->
 
     <!-- Register Modal -->
     <div id="register" class="modal fade" role="dialog">
@@ -90,7 +86,6 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                     <h4><span class="glyphicon glyphicon-leaf"></span> Register </h4>
                 </div>
-<<<<<<< HEAD
 				<form action="register.php" method="post"> 
 					<div class="modal-body" style="padding:40px 50px;">
 							<div class="form-group">
@@ -118,49 +113,11 @@
 
 					</div>
 				</form>
-=======
-
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form role="form">
-                        <div class="form-group">
-                            <label for="register_usrname"><span class="glyphicon glyphicon-user"></span> Username </label>
-                            <input type="text" class="form-control" id="register_usrname" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="register_psw"> Password </label>
-                            <input type="password" class="form-control" id="register_psw" placeholder="Enter password">
-                        </div>
-                        <div class="form-group">
-                            <label for="cnfm_psw"> Confirm Password </label>
-                            <input type="password" class="form-control" id="cnfm_psw" placeholder="Confirm password">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-
-                    <button type="button" class="btn btn-success"><span class="glyphicon glyphicon-check"></span> Register </button>
-                    <button type="button" class="btn btn-default" data-dismiss="modal"> Close </button>
-
-                </div>
->>>>>>> upstream/master
             </div>
         </div>
-
     </div>
 	
 	<!-- Sign In Modal -->
-	
-	<!--<form action="login.php" method="post"> 
-                    Username:<br /> 
-                    <input type="text" name="username" value="<?php echo $submitted_username; ?>" /> 
-                    <br /><br /> 
-                    Password:<br /> 
-                    <input type="password" name="password" value="" /> 
-                    <br /><br /> 
-                    <input type="submit" class="btn btn-info" value="Login" /> 
-                </form> -->
-	
     <div id="signIn" class="modal fade" role="dialog">
         <div class="modal-dialog">
             <div class="modal-content">
@@ -168,7 +125,6 @@
                     <button type="button" class="close" data-dismiss="modal">&times;</button> 
                     <h4><span class="glyphicon glyphicon-leaf"></span> Sign In </h4>
                 </div>
-<<<<<<< HEAD
 				<form method="post" action="login.php" >
 					<div class="modal-body" style="padding:40px 50px;">
 							<div class="form-group">
@@ -186,26 +142,6 @@
 						<button type="button" class="btn signIn_close" data-dismiss="modal"> Close </button>
 					</div>
 				</form>
-=======
-
-                <div class="modal-body" style="padding:40px 50px;">
-                    <form role="form">
-                        <div class="form-group">
-                            <label for="signIn_usrname"><span class="glyphicon glyphicon-user"></span> Username </label>
-                            <input type="text" class="form-control" id="signIn_usrname" placeholder="Enter email">
-                        </div>
-                        <div class="form-group">
-                            <label for="signIn_psw"> Password </label>
-                            <input type="password" class="form-control" id="signIn_psw" placeholder="Enter password">
-                        </div>
-                    </form>
-                </div>
-
-                <div class="modal-footer">
-                    <button type="button" class="btn signIn-success"> Sign In </button>
-                    <button type="button" class="btn signIn_close" data-dismiss="modal"> Close </button>
-                </div>
->>>>>>> upstream/master
             </div>
         </div>
     </div> 
